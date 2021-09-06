@@ -15,6 +15,9 @@ app.use(bodyParse.json())
 app.use(express.urlencoded({ extended: true }))
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParse.urlencoded({ extends: true }));
+app.use('/', (req, res, next) => {
+    res.end("Bonjour bienvenue");
+})
 app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use('/user', users)
 
