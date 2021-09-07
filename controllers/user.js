@@ -118,7 +118,7 @@ exports.CreerUser = (req, res, next) => {
         email: 'ousmane@gmail.com',
         profil: 'photo.png',
         password: '12345678',
-        // 'ville'=>'dakar'
+
     })
         .then(user => {
             res.status(201).json(user);
