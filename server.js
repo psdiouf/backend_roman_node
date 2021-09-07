@@ -17,4 +17,4 @@ socket.on('connection', (client) => {
     //     res.json("message de bienvenue");
     // })
 })
-server.listen(process.env.PORT || 3000)
+server.listen(process.env.PORT || 3000, '192.168.1.16')

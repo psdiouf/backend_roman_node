@@ -235,5 +235,30 @@ exports.RechercheCodePostal = (req, res, next) => {
 
 }
 exports.modifierProfil = (req, res, next) => {
-    this.verification(req, res, next);
+    res.status(200).json(req.body);
+}
+
+exports.modifierImageProfil = (req, res, next) => {
+
+    if (req.file) {
+        console.log(`${req.protocol}://${req.get('host')}/images/${req.file.filename}`);
+        console.log(req.file.mimetype)
+        const lien = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
+        const email = req.body.email;
+        // const filename = req.file.filename;
+        console.log(req.body.email);
+
+        models.User.update({
+            profil: lien
+        },
+            { where: { email: email } })
+            .then((resultat) => {
+                return res.status(200).json({ success: true, message: "image profil modifier avec succé", image: lien });
+            })
+            .catch(error => { return res.status(400).json({ error }) })
+
+        return
+
+    }
+    return res.status(200).json("aucune image");
 }
