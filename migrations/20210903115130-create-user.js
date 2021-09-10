@@ -29,6 +29,10 @@ module.exports = {
         allowNull: true,
         type: Sequelize.DATE
       },
+      sexe: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
       codePostal: {
         allowNull: true,
         type: Sequelize.STRING
@@ -70,6 +74,10 @@ module.exports = {
         type: Sequelize.STRING
       },
       artiste: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+      sortir: {
         allowNull: true,
         type: Sequelize.STRING
       },

@@ -3,6 +3,8 @@ const app = express()
 const bodyParse = require('body-parser')
 const users = require('./routes/users')
 const path = require('path');
+const photos = require('./routes/routesPhoto');
+const loisir = require('./routes/loisir')
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -17,5 +19,8 @@ app.use(express.urlencoded({ extended: true }))
 // app.use(bodyParse.urlencoded({ extends: true }));
 app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use('/user', users)
+app.use('/user/photos', photos);
+app.use('/user/loisirs', loisir);
+
 
 module.exports = app;
